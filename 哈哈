@@ -1,0 +1,36 @@
+<？XML version="1.0"encoding="utf-8"？>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+Android:layout_width="match_parent"
+Android:layout_height="match_parent">
+
+<VideoView
+Android:id="@+id/VideoView"
+Android:layout_width="match_parent"
+Android:layout_height="wrap_content"
+Android:layout_centerInParent="true"/>
+</RelativeLayout>
+包你的包名
+
+导入android.net.Uri
+导入android.os.Bundle
+导入android.widget.MediaController
+导入android.widget.VideoView
+导入androidx.appcompat.app.AppCompatActivity
+
+类MainActivity:AppCompatActivity(){
+override fun onCreate(savedInstanceState:Bundle？){
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_main)
+
+Val VideoView=findViewById<VideoView>(R.id.videoView)
+// 本地视频
+Val videoUri=URI.parse("android.resource://"+packageName+"/"+R.raw.sample_video)
+// 在线视频
+//val videoUri=URI.parse("https://www.example.com/video.mp4")
+
+videoView.setVideoURI(videoUri)
+VideoView.setMediaController(MediaController(此))
+videoView.requestFocus()
+videoView.start()
+    }
+}
